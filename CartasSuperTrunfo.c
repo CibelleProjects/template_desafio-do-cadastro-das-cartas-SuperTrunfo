@@ -12,6 +12,8 @@ int main() {
     float area1;
     float pib1;
     int pontos1;
+    float densidade1, pibPerCapita1;
+
 
     char estado2;
     char codigo2[4];
@@ -20,6 +22,7 @@ int main() {
     float area2;
     float pib2;
     int pontos2;
+     float densidade2, pibPerCapita2;
 
     // ==========================================================
     //  LEITURA DOS DADOS (CARTA 1)
@@ -105,5 +108,32 @@ int main() {
 
     printf("======================================\n");
 
+    // ==========================================================
+    //  CÁLCULOS (DENSIDADE E PIB PER CAPITA)
+    // ==========================================================
+    densidade1 = populacao1 / area1;
+    pibPerCapita1 = pib1 / populacao1;
+
+    densidade2 = populacao2 / area2;
+    pibPerCapita2 = pib2 / populacao2;
+
+    // Exibição dos novos dados calculados (Opcional - Adicione se quiser ver os valores)
+    printf("Densidade Populacional Carta 1: %.2f\n", densidade1);
+    printf("PIB per Capita Carta 1: %.2f\n", pibPerCapita1);
+    printf("Densidade Populacional Carta 2: %.2f\n", densidade2);
+    printf("PIB per Capita Carta 2: %.2f\n\n", pibPerCapita2);
+
+    // ==========================================================
+    //  LÓGICA DO JOGO (COMPARANDO POPULAÇÃO)
+    // ==========================================================
+    printf("Comparacao de cartas (Atributo: Populacao):\n");
+    printf("Carta 1 - %s (%c): %d\n", cidade1, estado1, populacao1);
+    printf("Carta 2 - %s (%c): %d\n", cidade2, estado2, populacao2);
+
+    if (populacao1 > populacao2) {
+        printf("Resultado: Carta 1 (%s) venceu!\n", cidade1);
+    } else {
+        printf("Resultado: Carta 2 (%s) venceu!\n", cidade2);
+    }
     return 0;
 }
